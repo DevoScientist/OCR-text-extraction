@@ -7,6 +7,7 @@ Purpose: Neural Network version of extracting text from image
 
 import argparse
 import easyocr
+from utils.utils import write_to_file
 
 
 # --------------------------------------------------
@@ -63,16 +64,17 @@ def extract_text(image_path):
     reader = easyocr.Reader(["en"])
     extracted_text = reader.readtext(image_path)
 
-    text = " ".join([det[1] for det in extracted_text])
+    text = "\n".join([det[1] for det in extracted_text])
     return text
 
 def main():
     """Make a jazz noise here"""
-    args = get_args()
-    image_path='./assets/ocr-test-01.jpeg'
+    image_path = "./assets/ocr-test-01.jpeg"
+    output_file_name = "using_NN_easyocr.txt"
+    output_path = f"./output/{output_file_name}"
     extracted_text = extract_text(image_path)
-    print(f'extracted text: {extracted_text}')
-    return True
+    print(f"extracted text: {extracted_text}")
+    write_to_file(extracted_text, output_path)
 
 
 # --------------------------------------------------
