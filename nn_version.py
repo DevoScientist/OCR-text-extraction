@@ -22,12 +22,12 @@ def get_args():
     #                     metavar='str',
     #                     help='A positional argument')
 
-    parser.add_argument('-a',
-                        '--arg',
-                        help='A named string argument',
+    parser.add_argument('-n',
+                        '--filename',
+                        help='give the filename',
                         metavar='str',
                         type=str,
-                        default='')
+                        default='output.txt')
 
     parser.add_argument('-i',
                         '--int',
@@ -69,8 +69,10 @@ def extract_text(image_path):
 
 def main():
     """Make a jazz noise here"""
+    args = get_args()
+    output_file_name = args.filename
     image_path = "./assets/ocr-test-01.jpeg"
-    output_file_name = "using_NN_easyocr.txt"
+
     output_path = f"./output/{output_file_name}"
     extracted_text = extract_text(image_path)
     print(f"extracted text: {extracted_text}")
