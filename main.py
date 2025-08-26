@@ -3,8 +3,11 @@
 import pytesseract
 from PIL import Image
 
+#Method -1 : not good for catching letter "I" in the test image.
 def extract_text(image_path):
     """
+    #to use this function : Tesseract OCR engine should be installed first
+    I am using Fedora so for me this is: sudo dnf install tesseract
     :param image_path:
     :return: text extracted from image
     """
