@@ -18,9 +18,10 @@ def get_args():
         description='Neural Network version of extracting text from image',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
-    # parser.add_argument('positional',
-    #                     metavar='str',
-    #                     help='A positional argument')
+    parser.add_argument('image_path',
+                        metavar='str',
+                        type=str,
+                        help='Path to image')
 
     parser.add_argument('-n',
                         '--filename',
@@ -28,25 +29,6 @@ def get_args():
                         metavar='str',
                         type=str,
                         default='output.txt')
-
-    parser.add_argument('-i',
-                        '--int',
-                        help='A named integer argument',
-                        metavar='int',
-                        type=int,
-                        default=0)
-
-    parser.add_argument('-f',
-                        '--file',
-                        help='A readable file',
-                        metavar='FILE',
-                        type=argparse.FileType('rt'),
-                        default=None)
-
-    parser.add_argument('-o',
-                        '--on',
-                        help='A boolean flag',
-                        action='store_true')
 
     return parser.parse_args()
 
